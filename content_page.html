@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Content Aggregator</title>
+</head>
+<body>
+    <h2>Content Aggregator</h2>
+    <p>Top Posts from Popular Websites</p>
+    <div class="aggregate" style="margin:{{margin}}">
+        <img height={{height}} width={{width}} src={{img}}>
+        <br>
+        {% for link in links %}
+        {% for l in link %}
+        <a href={{l.link}} style="font-size:11px">{{l.title}}</a>
+        <br>
+        {% breakfor %}
+        {% endfor %}
+    </div>
+</body>
+</html>
