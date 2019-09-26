@@ -3,19 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Content Aggregator</title>
+    <style>
+    * {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
 </head>
+
 <body>
     <h2>Content Aggregator</h2>
     <p>Top Posts from Popular Websites</p>
-    <div class="aggregate" style="margin:{{margin}}">
-        <img height={{height}} width={{width}} src={{img}}>
-        <br>
-        {% for link in links %}
-        {% for l in link %}
-        <a href={{l.link}} style="font-size:11px">{{l.title}}</a>
-        <br>
-        {% breakfor %}
-        {% endfor %}
+    <div class="row">
+        {% for link in range(length) %}
+        <div class = "column">
+            <img src={{all_images[link]}} width={{width}} height={{height}}>
+             <br>
+            {% for l in links[link] %}
+            <a href={{l.link}} style="font-size:11px">{{l.title}}</a>
+            <br>
+            {% endfor %}
+        </div>
+            {% endfor %}
     </div>
 </body>
 </html>
